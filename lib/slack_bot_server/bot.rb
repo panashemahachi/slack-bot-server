@@ -5,7 +5,7 @@ class SlackBotServer::Bot
 
   class InvalidToken < RuntimeError; end
 
-  def initialize(token:, key: nil)
+  def initialize(token: nil, key: nil)
     @token = token
     @key = key || @token
     @api = ::Slack::Client.new(token: @token)
