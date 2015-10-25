@@ -1,8 +1,8 @@
 require 'slack_bot_server/bot'
 
-class SlackBotServer::SimpleBot < SlackBotServer::Bot
+class SlackBotServer::Pearl < SlackBotServer::Bot
   # Set the username displayed in Slack
-  username 'SimpleBot'
+  username 'pearl'
 
   # Respond to mentions in the connected chat room (defaults to #general).
   # As well as the normal data provided by Slack's API, we add the `message`,

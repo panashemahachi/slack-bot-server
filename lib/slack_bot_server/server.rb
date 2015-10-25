@@ -1,5 +1,5 @@
 require 'slack_bot_server/bot'
-require 'slack_bot_server/simple_bot'
+require 'slack_bot_server/pearl'
 require 'slack_bot_server/redis_queue'
 
 class SlackBotServer::Server
