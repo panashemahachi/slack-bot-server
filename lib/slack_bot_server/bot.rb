@@ -28,6 +28,10 @@ class SlackBotServer::Bot
     @api.chat_postMessage(default_message_options.merge(options.merge(channel: channel)))
   end
 
+  def users_in_team
+    return @api.users_list
+  end
+
   def say_to(user_id, options)
     result = @api.im_open(user: user_id)
     channel_id = result['channel']['id']
@@ -89,10 +93,6 @@ class SlackBotServer::Bot
 
     def icon_url(url)
       default_message_options[:icon_url] = url
-    end
-
-    def users_in_team
-      return @api.users_list
     end
 
     def mention_as(*keywords)
