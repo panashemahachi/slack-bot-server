@@ -91,6 +91,10 @@ class SlackBotServer::Bot
       default_message_options[:icon_url] = url
     end
 
+    def users_in_team
+      return @api.users_list
+    end
+
     def mention_as(*keywords)
       @mention_keywords = keywords
     end
