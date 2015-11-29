@@ -89,6 +89,12 @@ class SlackBotServer::Server
       key, method, method_args = args
       bot = bot(key)
       bot.call(method, method_args)
+    when :say_to
+      user_slack_id = args.first
+      key = args[1]
+      message_data = args[2]
+      bot = bot(key)
+      bot.say_to(user_slack_id, key, message_data)
     else
       log unknown_command: instruction
     end
