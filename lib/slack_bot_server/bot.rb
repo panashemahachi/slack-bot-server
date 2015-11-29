@@ -35,7 +35,7 @@ class SlackBotServer::Bot
   def say_to(user_id, options)
     result = @api.im_open(user: user_id)
     channel_id = result['channel']['id']
-    say(options.merge(channel: channel_id))
+    @api.chat_postMessage(default_message_options.merge(options).merge(channel: channel_id))
   end
 
   def call(method, args)
