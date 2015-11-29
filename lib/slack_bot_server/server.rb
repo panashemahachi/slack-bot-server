@@ -44,9 +44,13 @@ class SlackBotServer::Server
   end
 
   def add_bot(bot)
-    log "adding bot #{bot}"
-    @bots[bot.key.to_sym] = bot
-    bot.start if @running
+    if !@bots[bot.key.to_sym].nil?
+      log "The bot #{bot} already exists dawg!"
+    else
+      @bots[bot.key.to_sym] = bot
+      log "The bot #{bot} has been added dawg!"
+      bot.start if @running
+    end
   end
 
   def add_token(token)
